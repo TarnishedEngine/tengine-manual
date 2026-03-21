@@ -1,0 +1,1 @@
+Tarnished Engine (abbreviated as `tengine`) is a 3D game engine written in C++.

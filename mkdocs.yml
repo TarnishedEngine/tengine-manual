@@ -6,3 +6,4 @@ repo_url: https://github.com/TarnishedEngine/tengine-manual
 nav:
   - Home: index.md
   - About: about.md
+  - TarnishedEngine Repositories: te-repos.md

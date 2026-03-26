@@ -2,8 +2,9 @@
 Source code for TarnishedEngine, Tarnished, tengine-reference, and tengine-manual are stored in GitHub repositories, under the [TarnishedEngine](https://github.com/TarnishedEngine) organization.
 
 List of repositories and their purpose:
+
 | Repo | Description | License |
-| :--: | :---------: | :-----: |
+|:---:|:---:|:---:|
 | [TarnishedEngine/tengine](https://github.com/TarnishedEngine/tengine) | TarnishedEngine source code | TODO |
 | [TarnishedEngine/tarnished](https://github.com/TarnishedEngine/tarnished) | Tarnished source code | TODO |
 | [TarnishedEngine/media](https://github.com/TarnishedEngine/media) | TarnishedEngine and Tarnished graphics, videos, etc | TODO |

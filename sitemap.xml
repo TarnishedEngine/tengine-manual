@@ -2,14 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://TarnishedEngine.github.io/tengine-manual/</loc>
-         <lastmod>2026-03-26</lastmod>
+         <lastmod>2026-04-19</lastmod>
     </url>
     <url>
          <loc>https://TarnishedEngine.github.io/tengine-manual/about/</loc>
-         <lastmod>2026-03-26</lastmod>
+         <lastmod>2026-04-19</lastmod>
     </url>
     <url>
          <loc>https://TarnishedEngine.github.io/tengine-manual/te-repos/</loc>
-         <lastmod>2026-03-26</lastmod>
+         <lastmod>2026-04-19</lastmod>
+    </url>
+    <url>
+         <loc>https://TarnishedEngine.github.io/tengine-manual/utilities/config-parser/config-parser/</loc>
+         <lastmod>2026-04-19</lastmod>
+    </url>
+    <url>
+         <loc>https://TarnishedEngine.github.io/tengine-manual/utilities/logger/logger/</loc>
+         <lastmod>2026-04-19</lastmod>
     </url>
 </urlset>

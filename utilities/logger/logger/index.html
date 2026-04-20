@@ -54,6 +54,18 @@
     <ul class="current">
                 <li class="toctree-l2 current"><a class="reference internal current" href="#">Logger</a>
     <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#structure">Structure:</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#logger">Logger</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#sinks">Sinks</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#filters">Filters</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#usage">Usage:</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../../config-parser/config-parser/">Config Parser</a>
@@ -87,7 +99,51 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="temp-temp-temp">TEMP TEMP TEMP</h1>
+                <h2 id="tarnishedengine-logger">TarnishedEngine Logger</h2>
+<p>The logger is a utility provided alongside Tengine. Its headers are in <code>/include/tengine/util/logger</code>, and source files in <code>/src/tengine/util/logger/</code>.</p>
+<h3 id="structure">Structure:</h3>
+<h4 id="logger">Logger</h4>
+<p>The main logger class is implemented as a Meyers Singleton. This allows everything to call the logger, with everything being routed to a single instance internally.</p>
+<p>Logs consist of three things:</p>
+<ul>
+<li>Log Level: States the importance of the log. Can be <code>DEBUG</code>, <code>INFO</code>, <code>WARNING</code>, <code>ERROR</code>, or <code>FATAL</code>.</li>
+<li>Sender: States the sender's name.</li>
+<li>Message: Contents of your log message.</li>
+</ul>
+<h4 id="sinks">Sinks</h4>
+<p>Sinks are implementations of a virtual class, and can be registered with the logger, alongside an optional filter. Logs that pass their filter's criteria are passed to the filter.</p>
+<h4 id="filters">Filters</h4>
+<p>Filters tell the logger what messages to send to sinks.</p>
+<h3 id="usage">Usage:</h3>
+<p>Include the logger's main header with:</p>
+<pre><code class="language-cpp">#include &lt;tengine/util/logger/Logger.hpp&gt;
+</code></pre>
+<p>Optionally, you can include a set of helpful macros with:</p>
+<pre><code class="language-cpp">#include &lt;tengine/util/logger/LoggerMacros.hpp&gt;
+</code></pre>
+<p>Get an instance of the logger, with:</p>
+<pre><code class="language-cpp">// Get an instance manually
+tengine::util::logger::Logger::getInstance()
+
+// Get an instance using a macro:
+TENGINE_GET_LOGGER
+</code></pre>
+<p>Register a sink with:</p>
+<pre><code class="language-cpp">// If no filter is specified, m_defaultFilter (specified in /include/tengine/util/logger/Logger.hpp) is used, which lets everything through
+logger.addSink(sink);
+logger.addSink(sink, filter);
+</code></pre>
+<p>Send a log message with:</p>
+<pre><code class="language-cpp">logger.log(level, sender, msg)
+TENGINE_LOG(level sender, msg)
+
+// Alternatively, LoggerMacros.hpp provides macros with the level field set for you
+TENGINE_LOG_DEBUG(sender, msg)
+TENGINE_LOG_INFO(sender, msg)
+TENGINE_LOG_WARN(sender, msg)
+TENGINE_LOG_ERROR(sender, msg)
+TENGINE_LOG_FATAL(sender, msg)
+</code></pre>
               
             </div>
           </div><footer>
